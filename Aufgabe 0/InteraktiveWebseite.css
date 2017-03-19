@@ -1,0 +1,18 @@
+document.addEventListener('DOMContentLoaded', function() {
+
+document.getElementById("Gestaltung").style.color = "black";
+document.getElementById("Gestaltung").style.fontSize = "3em";
+document.getElementById("Gestaltung").style.fontFamily = "sans-serif";
+document.getElementById("Gestaltung").style.position = "center";
+document.getElementById("Gestaltung").style.backgroundColor = "#ffffcc";
+    
+});
+
+
+#Gestaltung {
+	color: black;
+	background-color: #ffffcc;
+	font-family: sans-serif;
+	font-size: 3em;
+	text-align: center;
+}
