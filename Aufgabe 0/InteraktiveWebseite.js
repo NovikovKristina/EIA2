@@ -17,3 +17,4 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("Gestaltung").style.textAlign = "center";
     document.getElementById("Gestaltung").style.backgroundColor = "#f9ecf2";
 });
+//# sourceMappingURL=InteraktiveWebseite.js.map
