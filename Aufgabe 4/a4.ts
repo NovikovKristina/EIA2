@@ -381,10 +381,10 @@ namespace Aufgabe_4 {
         
         let anzahl: number = 20;
         for (let i: number = 0; i < anzahl; i++) {
-            let zufallsBlume: number = Math.floor((Math.random() * 5) + 1);
+            let zufallsBlume: number = Math.floor((Math.random() * 4) + 0);
             let x: number = (Math.random() * (1100) + 0);
             let y: number = (Math.random() * (640 - 350) + 290);
-            console.log("X is " + x, "Y is " + y, zufallsBlume);
+            console.log("x-Wert ist " + x, "y-Wert ist " + y, zufallsBlume);
 
             switch (zufallsBlume) {
                 case 0:

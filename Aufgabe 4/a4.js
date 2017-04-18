@@ -351,10 +351,10 @@ var Aufgabe_4;
         //            }
         let anzahl = 20;
         for (let i = 0; i < anzahl; i++) {
-            let zufallsBlume = Math.floor((Math.random() * 5) + 1);
+            let zufallsBlume = Math.floor((Math.random() * 4) + 0);
             let x = (Math.random() * (1100) + 0);
             let y = (Math.random() * (640 - 350) + 290);
-            console.log("X is " + x, "Y is " + y, zufallsBlume);
+            console.log("x-Wert ist " + x, "y-Wert ist " + y, zufallsBlume);
             switch (zufallsBlume) {
                 case 0:
                     drawBlumeEins(x, y, "#FA8258", "#FA8258");
