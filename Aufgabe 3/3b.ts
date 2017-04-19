@@ -1,55 +1,141 @@
 //Aufgabe: Aufgabe 3b "Mau Mau"
 //Name: Kristina Novikov
 //Matrikel: 254136
-//Datum: 09.04.2017
+//Datum: 19.04.2017
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
-//Diesen Code habe ich nicht ganz alleine geschrieben, ich habe viel recherchiert und ausprobiert
-//Im Grunde verstehe ich den Code, aber ich brauche immer etwas Hilfe und Unterstütung um voranzukommen
-//Leider funktioniert die Weitergabe vom Handstapel an den Ablagestapel noch nicht
+
+// Verbesserung der Aufgabe
 
 
 document.addEventListener("DOMContentLoaded", function(mauMauKarten) {
 
-    let spielkarten: string[] = [
-        "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Dame", "Kreuz König", "Kreuz Bube", "Kreuz Ass",
-        "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Dame", "Pik König", "Pik Bube", "Pik Ass",
-        "Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Dame", "Herz König", "Herz Bube", "Herz Ass",
-        "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Dame", "Karo König", "Karo Bube", "Karo Ass"
+    // Array mit allen Spielkarten
+    let spielkarten: string[] = ["Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Dame", "Kreuz König", "Kreuz Bube", "Kreuz Ass",
+                                 "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Dame", "Pik König", "Pik Bube", "Pik Ass",
+                                 "Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Dame", "Herz König", "Herz Bube", "Herz Ass",
+                                 "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Dame", "Karo König", "Karo Bube", "Karo Ass"
     ];
-    let ablagekarten: string[] = [];
-    let handkarten: string[] = [];
+
+    // Array, welcher später nach und nach durch das Ziehen von Karten gefüllt wird
+    let sammlungHandkarten: string[] = [];
+
+    // Array, welcher später durch das Ablegen von Karten gefüllt wird
+    let sammlungAblagekarten: string[] = [];
+
+    // Spielkarten Div zum Nachzihehen
+    let kartenStapel = document.createElement("div");
+    document.body.appendChild(kartenStapel);
+    kartenStapel.id = "kartenStapel";
+    // Styles
+    kartenStapel.textContent = "Kartenstapel";
+    kartenStapel.style.border = "1px solid black";
+    kartenStapel.style.width = "150px";
+    kartenStapel.style.height = "220px";
+    kartenStapel.style.backgroundColor = "lavender";
+    kartenStapel.style.fontSize = "1.2em";
+    kartenStapel.style.fontFamily = "sans-serif";
+    kartenStapel.style.lineHeight = "2em";
+    kartenStapel.style.textAlign = "center";
+    kartenStapel.style.cssFloat = "clearLeft";
+    kartenStapel.style.margin = "2em";
 
 
-    document.getElementById("nachziehen").textContent = "Kartenstapel";
-    document.getElementById("nachziehen").style.textAlign = "center";
 
-    document.getElementById("ablegen").textContent = "Aktuelle Karte: " + ablagekarten[ablagekarten.length - 1];
-    document.getElementById("ablegen").style.textAlign = "center";
+    // Kartenablagestapel Div
+    let ablageStapel = document.createElement("div");
+    document.body.appendChild(ablageStapel);
+    ablageStapel.id = "ablageStapel";
+    // Styles
+    ablageStapel.textContent = "Ablagestapel";
+    ablageStapel.style.border = "1px solid black";
+    ablageStapel.style.width = "150px";
+    ablageStapel.style.height = "220px";
+    ablageStapel.style.backgroundColor = "lavenderBlush";
+    ablageStapel.style.fontSize = "1.2em";
+    ablageStapel.style.fontFamily = "sans-serif";
+    ablageStapel.style.lineHeight = "2em";
+    ablageStapel.style.textAlign = "center";
+    ablageStapel.style.cssFloat = "right";
+    ablageStapel.style.margin = "2em";
 
 
-    document.getElementById("nachziehen").addEventListener("click", function() {
 
-        if (handkarten.length < 5) {
-            let kartennummer: number = Math.floor((Math.random() * 31));
+    // Funktion zum Ziehen von Karten und dem Hinzufügen zum Handkartenstapel
+    document.getElementById("kartenStapel").addEventListener("click", function(karteZumHandstapel) {
 
-            let div: HTMLDivElement = document.createElement("div");
-            document.getElementById("hand").appendChild(div);
+        if (sammlungHandkarten.length < 5 && spielkarten.length > 0) {
 
-            handkarten.push(spielkarten[kartennummer]);
-            spielkarten.splice(kartennummer, 1);
+            // Zufallszahl generieren, damit eine zufällige Karte aus dem Spielkarten Array gezogen wird
+            let zufallsKarte: number = Math.floor(Math.random() * (spielkarten.length) + 0);
 
-            div.className = "handkarten";
-            div.textContent = handkarten[handkarten.length - 1];
-            div.style.display = "block";
-            document.getElementById("hand").style.textAlign = "center";
+            let karteZiehen: string = spielkarten[zufallsKarte];
 
-            div.addEventListener("click", function() {
-                for (let n: number = 0; n < handkarten.length; n++) {
-                    if (this.textContent == handkarten[n]) {
-                        ablagekarten.push(handkarten[n]);
-                        handkarten.splice(n, 1);
+            // Gewählte Karte aus dem Array der Spielkarten entfernen
+            spielkarten.splice(zufallsKarte, 1);
+            console.log("Karte wurde aus Array der Spielkarten enfernt");
+
+            // Gewählt Karte zum Array der Handkarten hinzufügen
+            sammlungHandkarten.push(karteZiehen);
+            console.log("Karte wurde zum Array der Handkarten hinzugefügt");
+
+
+            // Handkarten
+            let handkarten = document.createElement("div");
+            document.body.appendChild(handkarten);
+            handkarten.id = "handkarten";
+
+
+            // Handkarten Divs (bis zu 5 Stück können durch Ziehen von Karten erstellt werden)
+            let handStapel = document.createElement("div");
+            document.getElementById("handkarten").appendChild(handStapel);
+            // Styles
+            handStapel.style.border = "1px solid black";
+            handStapel.style.width = "150px";
+            handStapel.style.height = "220px";
+            handStapel.style.backgroundColor = "aliceBlue";
+            handStapel.style.fontSize = "1.2em";
+            handStapel.style.fontFamily = "sans-serif";
+            handStapel.style.lineHeight = "2em";
+            handStapel.style.textAlign = "center";
+            handStapel.style.cssFloat = "left";
+            handStapel.style.margin = "2em";
+            handStapel.style.marginRight = "1.5em";
+            handStapel.textContent = karteZiehen;
+
+            console.log("gezogene Spielkarte wird zur Handkarte mit eigenem Div");
+
+
+
+            // Funktion um Karten aus dem Handstapel zu entfernen und sie dem Ablagestapel hinzuzufügen
+            handStapel.addEventListener("click", function(karteZumAblagestapel) {
+
+                for (let i: number = 0; i < sammlungHandkarten.length; i++) {
+
+                    if (this.textContent == sammlungHandkarten[i]) {
+
+                        // Gewählte Karte aus dem Array der Handkarten entfernen
+                        sammlungHandkarten.splice(i, 1);
+                        console.log("Karte wurde aus Array der Handkarten enfernt");
+
+                        // Gewählt Karte zum Ablagestapel hinzufügen
+                        sammlungAblagekarten.push(sammlungHandkarten[i]);
+                        console.log("Karte wurde zum Array der Ablagekarten hinzugefügt");
+
+                        break;
                     }
                 }
+
+
+
+                // Auf dem Ablagestapel anzeigen, welche Karte aktuell oben auf dem Stapel liegt
+                document.getElementById("ablageStapel").textContent = "Aktuelle Karte: " + this.textContent;
+
+                // Gewählte Karte bei Klick entfernen
+                this.parentNode.removeChild(this);
+                console.log("Gewählte Karte wurde entfernt");
+
+
             });
         }
     });

@@ -25,6 +25,39 @@ namespace Aufgabe_4 {
         drawBlumeDrei(500, 300, "#58ACFA", "#58ACFA");
 
 
+
+        // Blumen zufällig platzieren
+        let anzahlBlumen: number = 20;
+        for (let i: number = 0; i < anzahlBlumen; i++) {
+            let zufallsBlume: number = Math.floor((Math.random() * 4) + 0);
+            let x: number = Math.floor(Math.random() * (1100) + 0);
+            let y: number = Math.floor(Math.random() * (640 - 350) + 290);
+            console.log("der x-Wert ist " + x, "der y-Wert ist " + y, zufallsBlume);
+
+            switch (zufallsBlume) {
+                case 0:
+                    drawBlumeEins(x, y, "#FA8258", "#FA8258");
+//                    console.log("Blume 1 befindet sich hier x: " + x, "y: " + y);
+                    break;
+
+                case 1:
+                    drawBlumeZwei(x, y, "#9A2EFE", "#9A2EFE");
+//                    console.log("Blume 2 befindet sich hier x: " + x, "y: " + y);
+                    break;
+
+                case 2:
+                    drawBlumeDrei(x, y, "#58ACFA", "#58ACFA");
+//                    console.log("Blume 3 befindet sich hier x: " + x, "y: " + y);
+                    break;
+
+                default:
+//                console.log("x: " + x, "y: " + y);
+                    break;
+            }
+        }
+
+
+
         // Wiese
         function drawWiese(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
             crc2.beginPath();
@@ -241,16 +274,16 @@ namespace Aufgabe_4 {
             crc2.stroke();
         }
 
-        
-        
-        
+
+
+
         // Blumen 1 - 3
         function drawBlumeEins(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
             // linke Blüte
             crc2.beginPath();
             crc2.arc(346, 450, 8, 0, 2 * Math.PI);
-            crc2.fillStyle = "#FA8258";
-            crc2.strokeStyle = "#FA8258";
+            crc2.fillStyle = "#FA5858";
+            crc2.strokeStyle = "#FA5858";
             crc2.fill();
             crc2.stroke();
             // linke obere Blüte
@@ -360,52 +393,6 @@ namespace Aufgabe_4 {
             crc2.fill();
             crc2.stroke();
         }
-        
-        
 
-        // Blumen zufällig platzieren
-        
-//        let colors: string [] = ["#58ACFA", "#9A2EFE", "#FA8258"];
-//        
-//        let pickRandomFlower = function random() {
-//            let i: number = Math.floor(Math.random() * (1100) + 0);
-//            let x: number = (Math.random() * (1100) + 0);
-//            let y: number = (Math.random() * (640 - 350) + 290);
-//            return colors[i];
-//            }
-            
-        
-        
-        
-        
-        
-        let anzahl: number = 20;
-        for (let i: number = 0; i < anzahl; i++) {
-            let zufallsBlume: number = Math.floor((Math.random() * 4) + 0);
-            let x: number = (Math.random() * (1100) + 0);
-            let y: number = (Math.random() * (640 - 350) + 290);
-            console.log("x-Wert ist " + x, "y-Wert ist " + y, zufallsBlume);
-
-            switch (zufallsBlume) {
-                case 0:
-                    drawBlumeEins(x, y, "#FA8258", "#FA8258");
-                    break;
-
-                case 1:
-                    drawBlumeZwei(x, y, "#9A2EFE", "#9A2EFE");
-                    break;
-
-                case 2:
-                    drawBlumeDrei(x, y, "#58ACFA", "#58ACFA");
-                    break;
-
-                default:
-                    break;
-
-            }
-        }
-                                        
-
-}
-}
-    
+    }
+} 

@@ -21,6 +21,31 @@ var Aufgabe_4;
         drawBlumeEins(0, 0, "#FA5858", "#FA5858");
         drawBlumeZwei(700, 500, "#9A2EFE", "#9A2EFE");
         drawBlumeDrei(500, 300, "#58ACFA", "#58ACFA");
+        // Blumen zuf�llig platzieren
+        let anzahlBlumen = 20;
+        for (let i = 0; i < anzahlBlumen; i++) {
+            let zufallsBlume = Math.floor((Math.random() * 4) + 0);
+            let x = Math.floor(Math.random() * (1100) + 0);
+            let y = Math.floor(Math.random() * (640 - 350) + 290);
+            console.log("der x-Wert ist " + x, "der y-Wert ist " + y, zufallsBlume);
+            switch (zufallsBlume) {
+                case 0:
+                    drawBlumeEins(x, y, "#FA8258", "#FA8258");
+                    //                    console.log("Blume 1 befindet sich hier x: " + x, "y: " + y);
+                    break;
+                case 1:
+                    drawBlumeZwei(x, y, "#9A2EFE", "#9A2EFE");
+                    //                    console.log("Blume 2 befindet sich hier x: " + x, "y: " + y);
+                    break;
+                case 2:
+                    drawBlumeDrei(x, y, "#58ACFA", "#58ACFA");
+                    //                    console.log("Blume 3 befindet sich hier x: " + x, "y: " + y);
+                    break;
+                default:
+                    //                console.log("x: " + x, "y: " + y);
+                    break;
+            }
+        }
         // Wiese
         function drawWiese(_x, _y, _strokeColor, _fillColor) {
             crc2.beginPath();
@@ -231,8 +256,8 @@ var Aufgabe_4;
             // linke Bl�te
             crc2.beginPath();
             crc2.arc(346, 450, 8, 0, 2 * Math.PI);
-            crc2.fillStyle = "#FA8258";
-            crc2.strokeStyle = "#FA8258";
+            crc2.fillStyle = "#FA5858";
+            crc2.strokeStyle = "#FA5858";
             crc2.fill();
             crc2.stroke();
             // linke obere Bl�te
@@ -339,35 +364,6 @@ var Aufgabe_4;
             crc2.strokeStyle = "#81DAF5";
             crc2.fill();
             crc2.stroke();
-        }
-        // Blumen zuf�llig platzieren
-        //        let colors: string [] = ["#58ACFA", "#9A2EFE", "#FA8258"];
-        //        
-        //        let pickRandomFlower = function random() {
-        //            let i: number = Math.floor(Math.random() * (1100) + 0);
-        //            let x: number = (Math.random() * (1100) + 0);
-        //            let y: number = (Math.random() * (640 - 350) + 290);
-        //            return colors[i];
-        //            }
-        let anzahl = 20;
-        for (let i = 0; i < anzahl; i++) {
-            let zufallsBlume = Math.floor((Math.random() * 4) + 0);
-            let x = (Math.random() * (1100) + 0);
-            let y = (Math.random() * (640 - 350) + 290);
-            console.log("x-Wert ist " + x, "y-Wert ist " + y, zufallsBlume);
-            switch (zufallsBlume) {
-                case 0:
-                    drawBlumeEins(x, y, "#FA8258", "#FA8258");
-                    break;
-                case 1:
-                    drawBlumeZwei(x, y, "#9A2EFE", "#9A2EFE");
-                    break;
-                case 2:
-                    drawBlumeDrei(x, y, "#58ACFA", "#58ACFA");
-                    break;
-                default:
-                    break;
-            }
         }
     }
 })(Aufgabe_4 || (Aufgabe_4 = {}));
