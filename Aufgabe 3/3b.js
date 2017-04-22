@@ -3,31 +3,24 @@
 //Matrikel: 254136
 //Datum: 19.04.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-
-
 // Verbesserung der Aufgabe
-
-namespace aufgabe3b {
+var aufgabe3b;
+(function (aufgabe3b) {
     document.addEventListener("DOMContentLoaded", init);
-
-    function init(_event: Event): void {
+    function init(_event) {
         // Array mit allen Spielkarten
-        let spielkarten: string[] = ["Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Dame", "Kreuz König", "Kreuz Bube", "Kreuz Ass",
-            "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Dame", "Pik König", "Pik Bube", "Pik Ass",
-            "Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Dame", "Herz König", "Herz Bube", "Herz Ass",
-            "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Dame", "Karo König", "Karo Bube", "Karo Ass"
+        let spielkarten = ["Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Dame", "Kreuz Kï¿½nig", "Kreuz Bube", "Kreuz Ass",
+            "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Dame", "Pik Kï¿½nig", "Pik Bube", "Pik Ass",
+            "Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Dame", "Herz Kï¿½nig", "Herz Bube", "Herz Ass",
+            "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Dame", "Karo Kï¿½nig", "Karo Bube", "Karo Ass"
         ];
-
-        // Array, welcher später nach und nach durch das Ziehen von Karten gefüllt wird
-        let sammlungHandkarten: string[] = [];
-
-        // Array, welcher später durch das Ablegen von Karten gefüllt wird
-        let sammlungAblagekarten: string[] = [];
-
-        window.onload = function(): void {
-
+        // Array, welcher spï¿½ter nach und nach durch das Ziehen von Karten gefï¿½llt wird
+        let sammlungHandkarten = [];
+        // Array, welcher spï¿½ter durch das Ablegen von Karten gefï¿½llt wird
+        let sammlungAblagekarten = [];
+        window.onload = function () {
             // Spielkarten Div zum Nachzihehen
-            let kartenStapel: any = document.createElement("div");
+            let kartenStapel = document.createElement("div");
             document.body.appendChild(kartenStapel);
             kartenStapel.id = "kartenStapel";
             // Styles
@@ -42,11 +35,8 @@ namespace aufgabe3b {
             kartenStapel.style.textAlign = "center";
             kartenStapel.style.cssFloat = "clearLeft";
             kartenStapel.style.margin = "2em";
-
-
-
             // Kartenablagestapel Div
-            let ablageStapel: any = document.createElement("div");
+            let ablageStapel = document.createElement("div");
             document.body.appendChild(ablageStapel);
             ablageStapel.id = "ablageStapel";
             // Styles
@@ -61,36 +51,24 @@ namespace aufgabe3b {
             ablageStapel.style.textAlign = "center";
             ablageStapel.style.cssFloat = "right";
             ablageStapel.style.margin = "2em";
-
-
-
-            // Funktion zum Ziehen von Karten und dem Hinzufügen zum Handkartenstapel
-            document.getElementById("kartenStapel").addEventListener("click", function init(_event: Event): void {
-
+            // Funktion zum Ziehen von Karten und dem Hinzufï¿½gen zum Handkartenstapel
+            document.getElementById("kartenStapel").addEventListener("click", function init(_event) {
                 if (sammlungHandkarten.length < 5 && spielkarten.length > 0) {
-
-                    // Zufallszahl generieren, damit eine zufällige Karte aus dem Spielkarten Array gezogen wird
-                    let zufallsKarte: number = Math.floor(Math.random() * (spielkarten.length) + 0);
-
-                    let karteZiehen: string = spielkarten[zufallsKarte];
-
-                    // Gewählte Karte aus dem Array der Spielkarten entfernen
+                    // Zufallszahl generieren, damit eine zufï¿½llige Karte aus dem Spielkarten Array gezogen wird
+                    let zufallsKarte = Math.floor(Math.random() * (spielkarten.length) + 0);
+                    let karteZiehen = spielkarten[zufallsKarte];
+                    // Gewï¿½hlte Karte aus dem Array der Spielkarten entfernen
                     spielkarten.splice(zufallsKarte, 1);
                     console.log("Karte wurde aus Array der Spielkarten enfernt");
-
-                    // Gewählt Karte zum Array der Handkarten hinzufügen
+                    // Gewï¿½hlt Karte zum Array der Handkarten hinzufï¿½gen
                     sammlungHandkarten.push(karteZiehen);
-                    console.log("Karte wurde zum Array der Handkarten hinzugefügt");
-
-
+                    console.log("Karte wurde zum Array der Handkarten hinzugefï¿½gt");
                     // Handkarten
-                    let handkarten: any = document.createElement("div");
+                    let handkarten = document.createElement("div");
                     document.body.appendChild(handkarten);
                     handkarten.id = "handkarten";
-
-
-                    // Handkarten Divs (bis zu 5 Stück)
-                    let handStapel: any = document.createElement("div");
+                    // Handkarten Divs (bis zu 5 Stï¿½ck)
+                    let handStapel = document.createElement("div");
                     document.getElementById("handkarten").appendChild(handStapel);
                     // Styles
                     handStapel.style.border = "1px solid black";
@@ -105,43 +83,29 @@ namespace aufgabe3b {
                     handStapel.style.margin = "2em";
                     handStapel.style.marginRight = "1.5em";
                     handStapel.textContent = karteZiehen;
-
                     console.log("gezogene Spielkarte wird zur Handkarte mit eigenem Div");
-
-
-
-                    // Funktion um Karten aus dem Handstapel zu entfernen und sie dem Ablagestapel hinzuzufügen
-                    handStapel.addEventListener("click", function init(_event: Event): void {
-
-                        for (let i: number = 0; i < sammlungHandkarten.length; i++) {
-
+                    // Funktion um Karten aus dem Handstapel zu entfernen und sie dem Ablagestapel hinzuzufï¿½gen
+                    handStapel.addEventListener("click", function init(_event) {
+                        for (let i = 0; i < sammlungHandkarten.length; i++) {
                             if (this.textContent == sammlungHandkarten[i]) {
-
-                                // Gewählte Karte aus dem Array der Handkarten entfernen
+                                // Gewï¿½hlte Karte aus dem Array der Handkarten entfernen
                                 sammlungHandkarten.splice(i, 1);
                                 console.log("Karte wurde aus Array der Handkarten enfernt");
-
-                                // Gewählt Karte zum Ablagestapel hinzufügen
+                                // Gewï¿½hlt Karte zum Ablagestapel hinzufï¿½gen
                                 sammlungAblagekarten.push(sammlungHandkarten[i]);
-                                console.log("Karte wurde zum Array der Ablagekarten hinzugefügt");
-
+                                console.log("Karte wurde zum Array der Ablagekarten hinzugefï¿½gt");
                                 break;
                             }
                         }
-
-
-
                         // Auf dem Ablagestapel anzeigen, welche Karte aktuell oben auf dem Stapel liegt
                         document.getElementById("ablageStapel").textContent = "Aktuelle Karte: " + this.textContent;
-
-                        // Gewählte Karte bei Klick entfernen
+                        // Gewï¿½hlte Karte bei Klick entfernen
                         this.parentNode.removeChild(this);
-                        console.log("Gewählte Karte wurde entfernt");
-
-
+                        console.log("Gewï¿½hlte Karte wurde entfernt");
                     });
                 }
             });
         };
     }
-}
+})(aufgabe3b || (aufgabe3b = {}));
+//# sourceMappingURL=3b.js.map
