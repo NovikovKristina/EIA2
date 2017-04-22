@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function markierungSetzen(geklicktesFeldMarkieren) {
         let markierteFelder = document.getElementsByClassName("markiert");
         geklicktesFeldMarkieren.classList.toggle("markiert");
-        // Aufgabe 3a - Tooltip �ber markierten Feldern //
+        // Aufgabe 3a - Tooltip �ber markierten Feld        
         // Tooltip anzeigen, wenn ein oder mehrere Felder markiert sind, ansonsten nicht anzeigen
         if (markierteFelder.length >= 1) {
             document.getElementById("tooltip").style.display = "inline-block";
@@ -57,7 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
         else {
             document.getElementById("tooltip").style.display = "none";
         }
-        // Inhalt des Tooltips ist die Summe der Reisk�rner in Dezimal und in Hexadezimalzahlen
+        // Inhalt des Tooltips ist die Summe der Reisk�rner in Dezimal und in Hexadezimalzahlen       
+        summe = 0;
         for (let t = 0; t < markierteFelder.length; t++) {
             summe += Number(markierteFelder[t].textContent);
             let dezimal = summe.toString();

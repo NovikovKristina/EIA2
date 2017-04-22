@@ -9,7 +9,8 @@
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", init);
+function init(_event: Event) {
 
 
     // Tooltip erstellen
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         for (let flaeche: number = 0; flaeche < 8; flaeche++) {
 
-            let div = document.createElement("div");
+            let div: HTMLDivElement = document.createElement("div");
             document.body.appendChild(div);
 
             div.innerText = " " + reisKoerner;
@@ -57,28 +58,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// Aufgabe 3a - Felder markieren //
+    // Aufgabe 3a - Felder markieren //
 
     // Nur die Felder der ersten Reihe sollen markiert werden
-    let felderErsteReihe = document.getElementsByTagName("div");
+    let felderErsteReihe: NodeListOf<HTMLDivElement> = document.getElementsByTagName("div");
 
     for (let f: number = 0; f < 8; f++) {
-        felderErsteReihe[f].addEventListener("click", function() {
+        felderErsteReihe[f].addEventListener("click", init);
+        function init(_event: Event) {
             markierungSetzen(felderErsteReihe[f]);
-        });
+        }
     }
 
     // Angeklickte Felder farbig markieren
     function markierungSetzen(geklicktesFeldMarkieren: HTMLElement) {
-        let markierteFelder = document.getElementsByClassName("markiert");
+        let markierteFelder: string = document.getElementsByClassName("markiert");
 
         geklicktesFeldMarkieren.classList.toggle("markiert");
 
 
 
 
-// Aufgabe 3a - Tooltip über markierten Feldern //
-        
+        // Aufgabe 3a - Tooltip über markierten Feld        
         // Tooltip anzeigen, wenn ein oder mehrere Felder markiert sind, ansonsten nicht anzeigen
         if (markierteFelder.length >= 1) {
             document.getElementById("tooltip").style.display = "inline-block";
@@ -89,9 +90,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-        // Inhalt des Tooltips ist die Summe der Reiskörner in Dezimal und in Hexadezimalzahlen
-        
-
+        // Inhalt des Tooltips ist die Summe der Reiskörner in Dezimal und in Hexadezimalzahlen       
+        summe = 0;
         for (let t: number = 0; t < markierteFelder.length; t++) {
             summe += Number(markierteFelder[t].textContent);
             let dezimal: string = summe.toString();
@@ -108,4 +108,4 @@ document.addEventListener("DOMContentLoaded", function() {
         toolTip.style.left = (_event.clientX + 10) + "px";
     };
 
-});
+}

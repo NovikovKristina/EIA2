@@ -53,7 +53,7 @@ namespace Aufgabe_4 {
 
                 case 2:
                     drawBlumeDrei(x, y, "#58ACFA", "#58ACFA");
-                                        console.log("Blume 3 befindet sich hier x: " + x, "y: " + y);
+                    console.log("Blume 3 befindet sich hier x: " + x, "y: " + y);
                     break;
 
                 default:

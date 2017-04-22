@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function (mauMauKarten) {
             let handkarten = document.createElement("div");
             document.body.appendChild(handkarten);
             handkarten.id = "handkarten";
-            // Handkarten Divs (bis zu 5 St�ck k�nnen durch Ziehen von Karten erstellt werden)
+            // Handkarten Divs (bis zu 5 St�ck)
             let handStapel = document.createElement("div");
             document.getElementById("handkarten").appendChild(handStapel);
             // Styles
