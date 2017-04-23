@@ -62,7 +62,7 @@ function init(_event: Event): void {
     // Nur die Felder der ersten Reihe sollen markiert werden
     let felderErsteReihe: NodeListOf<HTMLDivElement> = document.getElementsByTagName("div");
 
-    for (let f: number = 0; f < 8; f++) {
+    for (let f: number = 0; f < 9; f++) {
         felderErsteReihe[f].addEventListener("click", init);
         function init(_event: Event): void {
             markierungSetzen(felderErsteReihe[f]);

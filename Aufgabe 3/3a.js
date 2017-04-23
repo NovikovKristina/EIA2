@@ -41,7 +41,7 @@ function init(_event) {
     // Aufgabe 3a - Felder markieren //
     // Nur die Felder der ersten Reihe sollen markiert werden
     let felderErsteReihe = document.getElementsByTagName("div");
-    for (let f = 0; f < 8; f++) {
+    for (let f = 0; f < 9; f++) {
         felderErsteReihe[f].addEventListener("click", init);
         function init(_event) {
             markierungSetzen(felderErsteReihe[f]);
