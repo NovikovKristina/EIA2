@@ -387,7 +387,7 @@ var Aufgabe5;
         }
         // Aufgabenteil Animation //
         // Bild abspeichern
-        savePicture = crc2.getImageData(0, 0, canvas.width, canvas.height);
+        savePicture = crc2.getImageData(0, 0, 1136, 640);
         // Bienen starten bei �ffnung des Bienenkorbes
         for (let i = 0; i < n; i++) {
             x[i] = 670;
@@ -464,15 +464,20 @@ var Aufgabe5;
             x[i] += Math.random() * 8 - 6;
             y[i] += Math.random() * 4 - 2;
             // Wenn die Bienen den Bildrand verlassen, kommen sie rechts wieder ins Bild
-            if (x[i] < 0) {
+            if (x[i] < -300) {
                 x[i] = 800;
             }
-            if (x[i] < 0) {
-                y[i] = 800;
+            if (x[i] == 0) {
+                x[i] = 800;
             }
-            if (y[i] > 700) {
-                y[i] = 0;
-            }
+            //            if (x[i] < 0) {
+            //                y[i] = 800;
+            //            }
+            //            if (y[i] > 700) {
+            //                y[i] = 0;
+            //
+            //
+            //            }
             drawBiene(x[i], y[i], "#000000", "#000000");
             console.log("Biene " + x + y);
         }
