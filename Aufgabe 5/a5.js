@@ -11,6 +11,9 @@ var Aufgabe5;
     let y = [];
     let n = 10;
     let savePicture;
+    let canvas;
+    canvas = document.getElementsByTagName("canvas")[0];
+    crc2 = canvas.getContext("2d");
     function init(_event) {
         let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
@@ -452,13 +455,13 @@ var Aufgabe5;
             y[i] += Math.random() * 4 - 2;
             // Wenn die Bienen den Bildrand verlassen, kommen sie von rechts wieder ins Bild
             if (x[i] < 0) {
-                x[i] = 800;
+                x[i] = canvas.width;
             }
-            if (x[i] < 0) {
-                y[i] = 800;
+            if (x[i] > 0) {
+                x[i] = canvas.width;
             }
-            if (y[i] > 800) {
-                y[i] = 0;
+            if (x[i] == 0) {
+                x[i] = canvas.width;
             }
             drawBiene(x[i], y[i], "#000000", "#000000");
             console.log("Biene " + x + y);
