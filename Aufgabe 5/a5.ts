@@ -11,9 +11,6 @@ namespace Aufgabe5 {
     let y: number[] = [];
     let n: number = 10;
     let savePicture: ImageData;
-    let canvas: HTMLCanvasElement;
-    canvas = document.getElementsByTagName("canvas")[0];
-    crc2 = canvas.getContext("2d");
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement;
@@ -498,13 +495,13 @@ namespace Aufgabe5 {
 
             // Wenn die Bienen den Bildrand verlassen, kommen sie von rechts wieder ins Bild
             if (x[i] < 0) {
-                x[i] = canvas.width;
+                x[i] = 800;
             }
-            if (x[i] > 0) {
-                x[i] = canvas.width;
+            if (x[i] < 0) {
+                y[i] = 800;
             }
-            if (x[i] == 0) {
-                x[i] = canvas.width;
+            if (y[i] > 700) {
+                y[i] = 0;
 
 
             }
@@ -516,5 +513,5 @@ namespace Aufgabe5 {
 
         window.setTimeout(animate, 20);
     }
-
+ 
 }
