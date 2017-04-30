@@ -450,7 +450,7 @@ var Aufgabe5;
         for (let i = 0; i < n; i++) {
             x[i] += Math.random() * 8 - 6;
             y[i] += Math.random() * 4 - 2;
-            // Wenn die Bienen den Bildrand verlassen, kommen sie von rechts wieder ins Bild
+            // Wenn die Bienen den Bildrand verlassen, kommen sie rechts wieder ins Bild
             if (x[i] < 0) {
                 x[i] = 800;
             }
