@@ -440,6 +440,19 @@ var Aufgabe5;
         crc2.fillRect(_x + 318, _y - 188, 5.5, 17);
         crc2.fill();
         crc2.stroke();
+        // F�hler Linie
+        crc2.beginPath();
+        crc2.fillStyle = "#000000";
+        crc2.fillRect(_x + 307, _y - 193, 2, 8);
+        crc2.fill();
+        crc2.stroke();
+        // F�hler Kreis
+        crc2.beginPath();
+        crc2.arc(_x + 308, _y - 191, 1.2, 0, 2 * Math.PI);
+        crc2.fillStyle = "#000000";
+        crc2.strokeStyle = "#000000";
+        crc2.fill();
+        crc2.stroke();
         console.log("Biene " + drawBiene);
     }
     // Bienen animieren
