@@ -424,7 +424,7 @@ namespace Aufgabe6a {
         // Aufgabenteil Animation //
 
         // Bild abspeichern
-        savePicture = crc2.getImageData(0, 0, 1136, 640);
+        savePicture = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
         // Bienen starten bei Öffnung des Bienenkorbes
         for (let i: number = 0; i < n; i++) {

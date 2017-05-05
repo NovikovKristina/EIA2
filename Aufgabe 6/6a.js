@@ -386,7 +386,7 @@ var Aufgabe6a;
         }
         // Aufgabenteil Animation //
         // Bild abspeichern
-        savePicture = crc2.getImageData(0, 0, 1136, 640);
+        savePicture = crc2.getImageData(0, 0, canvas.width, canvas.height);
         // Bienen starten bei �ffnung des Bienenkorbes
         for (let i = 0; i < n; i++) {
             let b = { x: 0, y: 0 };
