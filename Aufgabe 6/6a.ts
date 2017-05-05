@@ -10,6 +10,8 @@ namespace Aufgabe6a {
     interface Bienenschwarm {
         x: number;
         y: number;
+        size: number;
+        color: string;
     }
 
     let crc2: CanvasRenderingContext2D;
@@ -428,7 +430,7 @@ namespace Aufgabe6a {
 
         // Bienen starten bei Öffnung des Bienenkorbes
         for (let i: number = 0; i < n; i++) {
-            let b: Bienenschwarm = {x: 0, y: 0};
+            let b: Bienenschwarm = {x: 0, y: 0, size: 0, color: ""};
             b.x = 670;
             b.y = 600;
             bienen[i] = b;
@@ -443,7 +445,7 @@ namespace Aufgabe6a {
     }
     // Funktion für die weiteren Bienen
     function weitereBienen(): void {
-        bienen.push({x: 670, y: 600});
+        bienen.push({x: 670, y: 600, size: 0, color: ""});
         n++;
     }
 

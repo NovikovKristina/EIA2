@@ -389,7 +389,7 @@ var Aufgabe6a;
         savePicture = crc2.getImageData(0, 0, canvas.width, canvas.height);
         // Bienen starten bei �ffnung des Bienenkorbes
         for (let i = 0; i < n; i++) {
-            let b = { x: 0, y: 0 };
+            let b = { x: 0, y: 0, size: 0, color: "" };
             b.x = 670;
             b.y = 600;
             bienen[i] = b;
@@ -401,7 +401,7 @@ var Aufgabe6a;
     }
     // Funktion f�r die weiteren Bienen
     function weitereBienen() {
-        bienen.push({ x: 670, y: 600 });
+        bienen.push({ x: 670, y: 600, size: 0, color: "" });
         n++;
     }
     // Biene (Styles)
