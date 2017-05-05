@@ -41,18 +41,18 @@ namespace StudiVZ {
             lastname: dataArray[1],
             firstname: dataArray[2],
             age: parseInt(dataArray[3]),
-            gender: parseInt(dataArray[4]) == 1,
+            gender: parseInt(dataArray[4]) == 0,
             comment: dataArray[5]
         };
 
         students.push(sD);
 
         let gender: string;
-        if (parseInt(dataArray[4]) == 1) {
-            gender = "männlich";
+        if (parseInt(dataArray[4]) == 0) {
+            gender = "weiblich";
         }
         else {
-            gender = "weiblich";
+            gender = "männlich";
         }
 
         // Ausgabe der eingegebenen Daten
@@ -64,7 +64,7 @@ namespace StudiVZ {
         for (let i: number = 0; i < students.length; i++) {
 
             if (students[i].matrikelnumber == _matrikelnumber) {
-                let gender: string = students[i].gender ? "männlich" : "weblich";
+                let gender: string = students[i].gender ? "weiblich" : "männlich";
                 return "Zugehörige Daten zur Matrikelnummer: " + students[i].matrikelnumber + "\n\nName: " + students[i].lastname + "," + students[i].firstname + "\nAlter: " + students[i].age + "\nGeschlecht: " + gender + "\nKommentar: " + students[i].comment;
             }
 

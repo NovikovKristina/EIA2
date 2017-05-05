@@ -27,16 +27,16 @@ var StudiVZ;
             lastname: dataArray[1],
             firstname: dataArray[2],
             age: parseInt(dataArray[3]),
-            gender: parseInt(dataArray[4]) == 1,
+            gender: parseInt(dataArray[4]) == 0,
             comment: dataArray[5]
         };
         students.push(sD);
         let gender;
-        if (parseInt(dataArray[4]) == 1) {
-            gender = "m�nnlich";
+        if (parseInt(dataArray[4]) == 0) {
+            gender = "weiblich";
         }
         else {
-            gender = "weiblich";
+            gender = "m�nnlich";
         }
         // Ausgabe der eingegebenen Daten
         return "Deine eingegebenen Daten:\n" + "\nMatrikelnummer: " + sD.matrikelnumber + "\nName: " + sD.lastname + "," + sD.firstname + "\nAlter: " + sD.age + "\nGeschlecht: " + gender + "\nKommentar: " + sD.comment;
@@ -44,7 +44,7 @@ var StudiVZ;
     function queryData(_matrikelnumber) {
         for (let i = 0; i < students.length; i++) {
             if (students[i].matrikelnumber == _matrikelnumber) {
-                let gender = students[i].gender ? "m�nnlich" : "weblich";
+                let gender = students[i].gender ? "weiblich" : "m�nnlich";
                 return "Zugeh�rige Daten zur Matrikelnummer: " + students[i].matrikelnumber + "\n\nName: " + students[i].lastname + "," + students[i].firstname + "\nAlter: " + students[i].age + "\nGeschlecht: " + gender + "\nKommentar: " + students[i].comment;
             }
             else {
