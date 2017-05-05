@@ -1,3 +1,9 @@
+//Aufgabe: Aufgabe 6
+//Name: Kristina Novikov
+//Matrikel: 254136
+//Datum: 06.05.2017
+//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
 namespace StudiVZ {
     
     interface StudentData {
