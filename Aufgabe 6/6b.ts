@@ -59,17 +59,17 @@ namespace StudiVZ {
         return "Deine eingegebenen Daten:\n" + "\nMatrikelnummer: " + sD.matrikelnumber + "\nName: " + sD.lastname + "," + sD.firstname + "\nAlter: " + sD.age + "\nGeschlecht: " + gender + "\nKommentar: " + sD.comment;
     }
 
-    function queryData(_matrikel: number): string {
+    function queryData(_matrikelnumber: number): string {
 
         for (let i: number = 0; i < students.length; i++) {
 
-            if (students[i].matrikelnumber == _matrikel) {
-                let gender: string = students[i].gender ? "weiblich" : "männlich";
+            if (students[i].matrikelnumber == _matrikelnumber) {
+                let gender: string = students[i].gender ? "männlich" : "weblich";
                 return "Zugehörige Daten zur Matrikelnummer: " + students[i].matrikelnumber + "\n\nName: " + students[i].lastname + "," + students[i].firstname + "\nAlter: " + students[i].age + "\nGeschlecht: " + gender + "\nKommentar: " + students[i].comment;
             }
 
             else {
-                return "Die eingegebene Matrikelnummer existiert nicht";
+                return "Die eingegebene Matrikelnummer wurde noch nicht registriert";
             }
         }
     }

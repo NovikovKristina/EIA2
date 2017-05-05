@@ -41,14 +41,14 @@ var StudiVZ;
         // Ausgabe der eingegebenen Daten
         return "Deine eingegebenen Daten:\n" + "\nMatrikelnummer: " + sD.matrikelnumber + "\nName: " + sD.lastname + "," + sD.firstname + "\nAlter: " + sD.age + "\nGeschlecht: " + gender + "\nKommentar: " + sD.comment;
     }
-    function queryData(_matrikel) {
+    function queryData(_matrikelnumber) {
         for (let i = 0; i < students.length; i++) {
-            if (students[i].matrikelnumber == _matrikel) {
-                let gender = students[i].gender ? "weiblich" : "m�nnlich";
+            if (students[i].matrikelnumber == _matrikelnumber) {
+                let gender = students[i].gender ? "m�nnlich" : "weblich";
                 return "Zugeh�rige Daten zur Matrikelnummer: " + students[i].matrikelnumber + "\n\nName: " + students[i].lastname + "," + students[i].firstname + "\nAlter: " + students[i].age + "\nGeschlecht: " + gender + "\nKommentar: " + students[i].comment;
             }
             else {
-                return "Die eingegebene Matrikelnummer existiert nicht";
+                return "Die eingegebene Matrikelnummer wurde noch nicht registriert";
             }
         }
     }
