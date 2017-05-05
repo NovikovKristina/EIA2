@@ -48,11 +48,11 @@ namespace StudiVZ {
         students.push(sD);
 
         let gender: string;
-        if (parseInt(dataArray[4]) == 0) {
-            gender = "weiblich";
+        if (parseInt(dataArray[4]) == 1) {
+            gender = "männlich";
         }
         else {
-            gender = "männlich";
+            gender = "weiblich";
         }
 
         // Ausgabe der eingegebenen Daten

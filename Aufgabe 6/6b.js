@@ -32,11 +32,11 @@ var StudiVZ;
         };
         students.push(sD);
         let gender;
-        if (parseInt(dataArray[4]) == 0) {
-            gender = "weiblich";
+        if (parseInt(dataArray[4]) == 1) {
+            gender = "m�nnlich";
         }
         else {
-            gender = "m�nnlich";
+            gender = "weiblich";
         }
         // Ausgabe der eingegebenen Daten
         return "Deine eingegebenen Daten:\n" + "\nMatrikelnummer: " + sD.matrikelnumber + "\nName: " + sD.lastname + "," + sD.firstname + "\nAlter: " + sD.age + "\nGeschlecht: " + gender + "\nKommentar: " + sD.comment;
