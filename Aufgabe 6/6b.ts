@@ -41,7 +41,7 @@ namespace StudiVZ {
             lastname: dataArray[1],
             firstname: dataArray[2],
             age: parseInt(dataArray[3]),
-            gender: parseInt(dataArray[4]) == 0,
+            gender: parseInt(dataArray[4]) == 1,
             comment: dataArray[5]
         };
 
