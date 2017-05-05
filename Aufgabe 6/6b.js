@@ -44,7 +44,7 @@ var StudiVZ;
     function queryData(_matrikel) {
         for (let i = 0; i < students.length; i++) {
             if (students[i].matrikelnumber == _matrikel) {
-                let gender = students[i].gender ? "m�nnlich" : "weiblich";
+                let gender = students[i].gender ? "weiblich" : "m�nnlich";
                 return "Zugeh�rige Daten zur Matrikelnummer: " + students[i].matrikelnumber + "\n\nName: " + students[i].lastname + "," + students[i].firstname + "\nAlter: " + students[i].age + "\nGeschlecht: " + gender + "\nKommentar: " + students[i].comment;
             }
             else {

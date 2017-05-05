@@ -64,7 +64,7 @@ namespace StudiVZ {
         for (let i: number = 0; i < students.length; i++) {
 
             if (students[i].matrikelnumber == _matrikel) {
-                let gender: string = students[i].gender ? "männlich" : "weiblich";
+                let gender: string = students[i].gender ? "weiblich" : "männlich";
                 return "Zugehörige Daten zur Matrikelnummer: " + students[i].matrikelnumber + "\n\nName: " + students[i].lastname + "," + students[i].firstname + "\nAlter: " + students[i].age + "\nGeschlecht: " + gender + "\nKommentar: " + students[i].comment;
             }
 
