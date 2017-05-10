@@ -1,7 +1,7 @@
 //Aufgabe: Aufgabe 
 //Name: Kristina Novikov
 //Matrikel: 254136
-//Datum: 09.05.2017
+//Datum: 10.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
 
@@ -15,18 +15,18 @@ namespace Aufgabe7 {
 
         constructor(_x: number, _y: number) {
             console.log("Hey, I'm Bob!");
-//            this.setRandomStyle();
+            //            this.setRandomStyle();
             //this.setRandomPosition();
             this.x = _x;
             this.y = _y;
         }
 
-        update(): void {
-            this.move();
-            this.draw();
+        updateBees(): void {
+            this.moveBees();
+            this.drawBees();
         }
 
-        draw(): void {
+        drawBees(): void {
             // Kopf
             crc2.beginPath();
             crc2.arc(this.x + 310, this.y - 180, 6, 0, 2 * Math.PI);
@@ -76,19 +76,21 @@ namespace Aufgabe7 {
             crc2.stroke();
         }
 
-        move(): void {
+        moveBees(): void {
             this.x += Math.random() * 8 - 6;
             this.y += Math.random() * 4 - 2;
         }
 
-//        setRandomPosition(): void {
-//            this.x = Math.random() * 200;
-//            this.y = Math.random() * 200;
-//        }
-//
-//        setRandomStyle(): void {
-//            this.size = Math.random() * 30 + 10;
-//            this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-//        }
+
+        flybackBees(): void {
+            if (this.x < - 300) {
+                this.x = 800;
+            }
+            if (this.x == 0) {
+                this.x = 800;
+            }
+        }
+
+
     }
 }

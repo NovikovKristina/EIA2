@@ -1,7 +1,7 @@
 //Aufgabe: Aufgabe 
 //Name: Kristina Novikov
 //Matrikel: 254136
-//Datum: 09.05.2017
+//Datum: 10.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var Aufgabe7;
 (function (Aufgabe7) {
@@ -13,11 +13,11 @@ var Aufgabe7;
             this.x = _x;
             this.y = _y;
         }
-        update() {
-            this.move();
-            this.draw();
+        updateBees() {
+            this.moveBees();
+            this.drawBees();
         }
-        draw() {
+        drawBees() {
             // Kopf
             Aufgabe7.crc2.beginPath();
             Aufgabe7.crc2.arc(this.x + 310, this.y - 180, 6, 0, 2 * Math.PI);
@@ -66,9 +66,17 @@ var Aufgabe7;
             Aufgabe7.crc2.fill();
             Aufgabe7.crc2.stroke();
         }
-        move() {
+        moveBees() {
             this.x += Math.random() * 8 - 6;
             this.y += Math.random() * 4 - 2;
+        }
+        flybackBees() {
+            if (this.x < -300) {
+                this.x = 800;
+            }
+            if (this.x == 0) {
+                this.x = 800;
+            }
         }
     }
     Aufgabe7.Bienenschwarm = Bienenschwarm;

@@ -1,7 +1,7 @@
 //Aufgabe: Aufgabe 
 //Name: Kristina Novikov
 //Matrikel: 254136
-//Datum: 09.05.2017
+//Datum: 10.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
 namespace Aufgabe7 {
@@ -35,38 +35,42 @@ namespace Aufgabe7 {
         drawSonne(0, 0, "#F4FA58", "#F4FA58");
         drawTanneEins(100, 300, "#0B6121", "#0B6121");
         drawTanneZwei(800, 255, "#0B6121", "#0B6121");
-        drawBlumeEins(550, 700, "#FA5858", "#FA5858");
-        drawBlumeZwei(700, 600, "#9A2EFE", "#9A2EFE");
-        drawBlumeDrei(1100, 700, "#58ACFA", "#58ACFA");
+        //        drawBlumeEins(550, 700, "#FA5858", "#FA5858");
+        //        drawBlumeZwei(700, 600, "#9A2EFE", "#9A2EFE");
+        //        drawBlumeDrei(1100, 700, "#58ACFA", "#58ACFA");
         drawBienenkorb(0, 0, "#61380B", "#61380B");
         //        drawBiene(0, 0, "#000000", "#000000");
 
 
         // Blumen zufällig platzieren
-        let anzahlBlumen: number = 20;
-        for (let i: number = 0; i < anzahlBlumen; i++) {
-            let zufallsBlume: number = Math.floor((Math.random() * 3) + 0);
-            let x: number = Math.floor(Math.random() * (1100 - 0) + 0);
-            let y: number = Math.floor(Math.random() * (630 - 400) + 550);
-            //        console.log("der x-Wert ist " + x, "der y-Wert ist " + y, zufallsBlume);
+        //        let anzahlBlumen: number = 20;
+        //        for (let i: number = 0; i < anzahlBlumen; i++) {
+        //            let zufallsBlume: number = Math.floor((Math.random() * 3) + 0);
+        //            let x: number = Math.floor(Math.random() * (1100 - 0) + 0);
+        //            let y: number = Math.floor(Math.random() * (630 - 400) + 550);
+        //            //        console.log("der x-Wert ist " + x, "der y-Wert ist " + y, zufallsBlume);
+        //
+        //            switch (zufallsBlume) {
+        //                case 0:
+        //                    drawBlumeEins(x, y, "#FA8258", "#FA8258");
+        //                    break;
+        //
+        //                case 1:
+        //                    drawBlumeZwei(x, y, "#9A2EFE", "#9A2EFE");
+        //                    break;
+        //
+        //                case 2:
+        //                    drawBlumeDrei(x, y, "#58#5
+        //                    break;
+        //
+        //                default:
+        //                    break;
+        //            }
+        //        }
 
-            switch (zufallsBlume) {
-                case 0:
-                    drawBlumeEins(x, y, "#FA8258", "#FA8258");
-                    break;
 
-                case 1:
-                    drawBlumeZwei(x, y, "#9A2EFE", "#9A2EFE");
-                    break;
 
-                case 2:
-                    drawBlumeDrei(x, y, "#58ACFA", "#58ACFA");
-                    break;
 
-                default:
-                    break;
-            }
-        }
 
 
         // Berge 1-3
@@ -268,122 +272,122 @@ namespace Aufgabe7 {
         }
 
 
-        // Blumen 1 - 3
-        function drawBlumeEins(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-            // linke Blüte
-            crc2.beginPath();
-            crc2.arc(_x - 334, _y - 230, 8, 0, 2 * Math.PI);
-            crc2.fillStyle = "#FA5858";
-            crc2.strokeStyle = "#FA5858";
-            crc2.fill();
-            crc2.stroke();
-            // linke obere Blüte
-            crc2.beginPath();
-            crc2.arc(_x - 330, _y - 240, 8, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // linke untere Blüte
-            crc2.beginPath();
-            crc2.arc(_x - 330, _y - 220, 8, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // rechte Blüte
-            crc2.beginPath();
-            crc2.arc(_x - 306, _y - 230, 8, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // rechte obere Blüte
-            crc2.beginPath();
-            crc2.arc(_x - 310, _y - 240, 8, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // rechte untere Blüte
-            crc2.beginPath();
-            crc2.arc(_x - 310, _y - 220, 8, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // obere Blüte
-            crc2.beginPath();
-            crc2.arc(_x - 320, _y - 243, 8, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // untere Blüte
-            crc2.beginPath();
-            crc2.arc(_x - 320, _y - 217, 8, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // Blumenkopf
-            crc2.beginPath();
-            crc2.arc(_x - 320, _y - 230, 8, 0, 2 * Math.PI);
-            crc2.fillStyle = "#FAAC58";
-            crc2.strokeStyle = "#FAAC58";
-            crc2.fill();
-            crc2.stroke();
-        }
-
-        function drawBlumeZwei(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-            // linke Blüte
-            crc2.beginPath();
-            crc2.arc(_x + 8, _y - 167, 10, 0, 2 * Math.PI);
-            crc2.fillStyle = "#9A2EFE";
-            crc2.strokeStyle = "#9A2EFE";
-            crc2.fill();
-            crc2.stroke();
-            // rechte Blüte
-            crc2.beginPath();
-            crc2.arc(_x + 32, _y - 167, 10, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // obere Blüte
-            crc2.beginPath();
-            crc2.arc(_x + 20, _y - 180, 10, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // untere Blüte
-            crc2.beginPath();
-            crc2.arc(_x + 20, _y - 155, 10, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // Blumenkopf
-            crc2.beginPath();
-            crc2.arc(_x + 20, _y - 167.5, 9, 0, 2 * Math.PI);
-            crc2.fillStyle = "#D0A9F5";
-            crc2.strokeStyle = "#D0A9F5";
-            crc2.fill();
-            crc2.stroke();
-        }
-
-        function drawBlumeDrei(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-            // linke obere Blüte
-            crc2.beginPath();
-            crc2.arc(_x - 230, _y - 140, 10, 0, 2 * Math.PI);
-            crc2.fillStyle = "#58ACFA";
-            crc2.strokeStyle = "#58ACFA";
-            crc2.fill();
-            crc2.stroke();
-            // linke untere Blüte
-            crc2.beginPath();
-            crc2.arc(_x - 230, _y - 120, 10, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // rechte obere Blüte
-            crc2.beginPath();
-            crc2.arc(_x - 210, _y - 140, 10, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // rechte untere Blüte
-            crc2.beginPath();
-            crc2.arc(_x - 210, _y - 120, 10, 0, 2 * Math.PI);
-            crc2.fill();
-            crc2.stroke();
-            // Blumenkopf
-            crc2.beginPath();
-            crc2.arc(_x - 220, _y - 130, 8, 0, 2 * Math.PI);
-            crc2.fillStyle = "#81DAF5";
-            crc2.strokeStyle = "#81DAF5";
-            crc2.fill();
-            crc2.stroke();
-        }
+        //        // Blumen 1 - 3
+        //        function drawBlumeEins(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        //            // linke Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 334, _y - 230, 8, 0, 2 * Math.PI);
+        //            crc2.fillStyle = "#FA5858";
+        //            crc2.strokeStyle = "#FA5858";
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // linke obere Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 330, _y - 240, 8, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // linke untere Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 330, _y - 220, 8, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // rechte Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 306, _y - 230, 8, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // rechte obere Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 310, _y - 240, 8, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // rechte untere Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 310, _y - 220, 8, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // obere Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 320, _y - 243, 8, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // untere Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 320, _y - 217, 8, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // Blumenkopf
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 320, _y - 230, 8, 0, 2 * Math.PI);
+        //            crc2.fillStyle = "#FAAC58";
+        //            crc2.strokeStyle = "#FAAC58";
+        //            crc2.fill();
+        //            crc2.stroke();
+        //        }
+        //
+        //        function drawBlumeZwei(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        //            // linke Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x + 8, _y - 167, 10, 0, 2 * Math.PI);
+        //            crc2.fillStyle = "#9A2EFE";
+        //            crc2.strokeStyle = "#9A2EFE";
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // rechte Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x + 32, _y - 167, 10, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // obere Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x + 20, _y - 180, 10, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // untere Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x + 20, _y - 155, 10, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // Blumenkopf
+        //            crc2.beginPath();
+        //            crc2.arc(_x + 20, _y - 167.5, 9, 0, 2 * Math.PI);
+        //            crc2.fillStyle = "#D0A9F5";
+        //            crc2.strokeStyle = "#D0A9F5";
+        //            crc2.fill();
+        //            crc2.stroke();
+        //        }
+        //
+        //        function drawBlumeDrei(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        //            // linke obere Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 230, _y - 140, 10, 0, 2 * Math.PI);
+        //            crc2.fillStyle = "#58ACFA";
+        //            crc2.strokeStyle = "#58ACFA";
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // linke untere Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 230, _y - 120, 10, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // rechte obere Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 210, _y - 140, 10, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // rechte untere Blüte
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 210, _y - 120, 10, 0, 2 * Math.PI);
+        //            crc2.fill();
+        //            crc2.stroke();
+        //            // Blumenkopf
+        //            crc2.beginPath();
+        //            crc2.arc(_x - 220, _y - 130, 8, 0, 2 * Math.PI);
+        //            crc2.fillStyle = "#81DAF5";
+        //            crc2.strokeStyle = "#81DAF5";
+        //            crc2.fill();
+        //            crc2.stroke();
+        //        }
 
         // Bienenkorb
         function drawBienenkorb(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
@@ -419,6 +423,16 @@ namespace Aufgabe7 {
 
         // Aufgabenteil Animation //
 
+        let anzahlBlumen: number = 20;
+        for (let i: number = 0; i < anzahlBlumen; i++) {
+            let f: Blumenwiese = new Blumenwiese(600, 700);
+            f.updateFlowers();
+//            f.drawFlower1();
+//            f.drawFlower2();
+//            f.drawFlower3();
+//            f.setRandomFlower();
+        }
+
         // Bild abspeichern
         savePicture = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
@@ -438,7 +452,8 @@ namespace Aufgabe7 {
     }
     // Funktion für die weiteren Bienen
     function weitereBienen(): void {
-        bienen.push();
+        let neueBiene: Bienenschwarm = new Bienenschwarm(670, 600);
+        bienen.push(neueBiene);
         n++;
     }
 
@@ -454,23 +469,15 @@ namespace Aufgabe7 {
         // Das Flugverhalten der Bienen soll etwas nach links neigen
         for (let i: number = 0; i < n; i++) {
             let b: Bienenschwarm = bienen[i];
-            b.update();
-
-
-            // Wenn die Bienen den Bildrand verlassen, kommen sie rechts wieder ins Bild
-
-            if (b.x < - 300) {
-                b.x = 800;
-            }
-            if (b.x == 0) {
-                b.x = 800;
-            }
+            b.updateBees();
+            b.flybackBees();
 
 
 
 
-            drawBiene(b.x, b.y, "#000000", "#000000");
-            console.log("Biene " + b.x + b.y);
+
+            //            drawBiene(b.x, b.y, "#000000", "#000000");
+            //            console.log("Biene " + b.x + b.y);
         }
 
         window.setTimeout(animate, 20);
