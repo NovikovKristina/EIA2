@@ -1,16 +1,18 @@
-//Aufgabe: Aufgabe 5
+//Aufgabe: Aufgabe 
 //Name: Kristina Novikov
 //Matrikel: 254136
-//Datum: 30.04.2017
+//Datum: 09.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
-namespace Aufgabe5 {
-    window.addEventListener("load", init);
-    let crc2: CanvasRenderingContext2D;
-    let x: number[] = [];
-    let y: number[] = [];
+namespace Aufgabe7 {
+
+    export let crc2: CanvasRenderingContext2D;
+    let bienen: Bienenschwarm[] = [];
+
     let n: number = 10;
     let savePicture: ImageData;
+
+    window.addEventListener("load", init);
 
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement;
@@ -418,12 +420,13 @@ namespace Aufgabe5 {
         // Aufgabenteil Animation //
 
         // Bild abspeichern
-        savePicture = crc2.getImageData(0, 0, 1136, 640);
+        savePicture = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
         // Bienen starten bei Öffnung des Bienenkorbes
         for (let i: number = 0; i < n; i++) {
-            x[i] = 670;
-            y[i] = 600;
+            let b: Bienenschwarm = new Bienenschwarm(670, 600);
+
+            bienen[i] = b;
         }
 
         window.setTimeout(animate, 20);
@@ -435,62 +438,10 @@ namespace Aufgabe5 {
     }
     // Funktion für die weiteren Bienen
     function weitereBienen(): void {
-        x.push(670);
-        y.push(600);
+        bienen.push();
         n++;
     }
 
-    // Biene (Styles)
-    function drawBiene(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-        // Kopf
-        crc2.beginPath();
-        crc2.arc(_x + 310, _y - 180, 6, 0, 2 * Math.PI);
-        crc2.fillStyle = "#000000";
-        crc2.strokeStyle = "#000000";
-        crc2.fill();
-        crc2.stroke();
-        // Flügel 1
-        crc2.beginPath();
-        crc2.arc(_x + 317, _y - 190, 5, 0, 2 * Math.PI);
-        crc2.fillStyle = "#EFF8FB";
-        crc2.strokeStyle = "#E6E6E6";
-        crc2.fill();
-        crc2.stroke();
-        // Flügel 2
-        crc2.beginPath();
-        crc2.arc(_x + 323.5, _y - 190, 5, 0, 2 * Math.PI);
-        crc2.fillStyle = "#EFF8FB";
-        crc2.strokeStyle = "#E6E6E6";
-        crc2.fill();
-        crc2.stroke();
-        //Körper
-        crc2.beginPath();
-        crc2.arc(_x + 320, _y - 180, 8.5, 0, 2 * Math.PI);
-        crc2.fillStyle = "#F4FA58";
-        crc2.strokeStyle = "#F4FA58";
-        crc2.fill();
-        crc2.stroke();
-        // Streifen
-        crc2.beginPath();
-        crc2.fillStyle = "#000000";
-        crc2.fillRect(_x + 318, _y - 188, 5.5, 17);
-        crc2.fill();
-        crc2.stroke();
-        // Fühler Linie
-        crc2.beginPath();
-        crc2.fillStyle = "#000000";
-        crc2.fillRect(_x + 307, _y - 193, 2, 8);
-        crc2.fill();
-        crc2.stroke();
-        // Fühler Kreis
-        crc2.beginPath();
-        crc2.arc(_x + 308, _y - 191, 1.2, 0, 2 * Math.PI);
-        crc2.fillStyle = "#000000";
-        crc2.strokeStyle = "#000000";
-        crc2.fill();
-        crc2.stroke();
-        console.log("Biene " + drawBiene);
-    }
 
 
 
@@ -502,24 +453,24 @@ namespace Aufgabe5 {
 
         // Das Flugverhalten der Bienen soll etwas nach links neigen
         for (let i: number = 0; i < n; i++) {
-            x[i] += Math.random() * 8 - 6;
-            y[i] += Math.random() * 4 - 2;
+            let b: Bienenschwarm = bienen[i];
+            b.update();
 
 
             // Wenn die Bienen den Bildrand verlassen, kommen sie rechts wieder ins Bild
 
-            if (x[i] < - 300) {
-                x[i] = 800;
+            if (b.x < - 300) {
+                b.x = 800;
             }
-            if (x[i] == 0) {
-                x[i] = 800;
+            if (b.x == 0) {
+                b.x = 800;
             }
 
 
 
 
-            drawBiene(x[i], y[i], "#000000", "#000000");
-            console.log("Biene " + x + y);
+            drawBiene(b.x, b.y, "#000000", "#000000");
+            console.log("Biene " + b.x + b.y);
         }
 
         window.setTimeout(animate, 20);

@@ -3,28 +3,24 @@
 //Matrikel: 254136
 //Datum: 30.04.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-
-namespace Aufgabe5 {
+var Aufgabe5;
+(function (Aufgabe5) {
     window.addEventListener("load", init);
-    let crc2: CanvasRenderingContext2D;
-    let x: number[] = [];
-    let y: number[] = [];
-    let n: number = 10;
-    let savePicture: ImageData;
-
-    function init(_event: Event): void {
-        let canvas: HTMLCanvasElement;
+    let crc2;
+    let x = [];
+    let y = [];
+    let n = 10;
+    let savePicture;
+    function init(_event) {
+        let canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
-
         // Wiese       
         crc2.fillStyle = "#ACFA58";
         crc2.fillRect(0, 300, 1136, 350);
-
         // Himmel
         crc2.fillStyle = "#A9E2F3";
         crc2.fillRect(0, 300, 1136, -300);
-
         drawBergEins(0, 300, "#A4A4A4", "#A4A4A4");
         drawBergZwei(50, 300, "#A4A4A4", "#A4A4A4");
         drawBergDrei(340, 300, "#A4A4A4", "#A4A4A4");
@@ -38,37 +34,29 @@ namespace Aufgabe5 {
         drawBlumeDrei(1100, 700, "#58ACFA", "#58ACFA");
         drawBienenkorb(0, 0, "#61380B", "#61380B");
         //        drawBiene(0, 0, "#000000", "#000000");
-
-
-        // Blumen zufällig platzieren
-        let anzahlBlumen: number = 20;
-        for (let i: number = 0; i < anzahlBlumen; i++) {
-            let zufallsBlume: number = Math.floor((Math.random() * 3) + 0);
-            let x: number = Math.floor(Math.random() * (1100 - 0) + 0);
-            let y: number = Math.floor(Math.random() * (630 - 400) + 550);
+        // Blumen zufï¿½llig platzieren
+        let anzahlBlumen = 20;
+        for (let i = 0; i < anzahlBlumen; i++) {
+            let zufallsBlume = Math.floor((Math.random() * 3) + 0);
+            let x = Math.floor(Math.random() * (1100 - 0) + 0);
+            let y = Math.floor(Math.random() * (630 - 400) + 550);
             //        console.log("der x-Wert ist " + x, "der y-Wert ist " + y, zufallsBlume);
-
             switch (zufallsBlume) {
                 case 0:
                     drawBlumeEins(x, y, "#FA8258", "#FA8258");
                     break;
-
                 case 1:
                     drawBlumeZwei(x, y, "#9A2EFE", "#9A2EFE");
                     break;
-
                 case 2:
                     drawBlumeDrei(x, y, "#58ACFA", "#58ACFA");
                     break;
-
                 default:
                     break;
             }
         }
-
-
         // Berge 1-3
-        function drawBergEins(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        function drawBergEins(_x, _y, _strokeColor, _fillColor) {
             crc2.beginPath();
             crc2.fillStyle = _fillColor;
             crc2.strokeStyle = _strokeColor;
@@ -89,8 +77,7 @@ namespace Aufgabe5 {
             crc2.fill();
             crc2.stroke();
         }
-
-        function drawBergZwei(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        function drawBergZwei(_x, _y, _strokeColor, _fillColor) {
             crc2.beginPath();
             crc2.fillStyle = _fillColor;
             crc2.strokeStyle = _strokeColor;
@@ -111,8 +98,7 @@ namespace Aufgabe5 {
             crc2.fill();
             crc2.stroke();
         }
-
-        function drawBergDrei(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        function drawBergDrei(_x, _y, _strokeColor, _fillColor) {
             crc2.beginPath();
             crc2.fillStyle = _fillColor;
             crc2.strokeStyle = _strokeColor;
@@ -133,9 +119,8 @@ namespace Aufgabe5 {
             crc2.fill();
             crc2.stroke();
         }
-
         // Wolken 1 und 2
-        function drawWolkeEins(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        function drawWolkeEins(_x, _y, _strokeColor, _fillColor) {
             // linker Bogen
             crc2.beginPath();
             crc2.arc(50, 75, 30, 0.5 * Math.PI, 1.5 * Math.PI);
@@ -158,16 +143,14 @@ namespace Aufgabe5 {
             crc2.arc(75, 60, 30, 1 * Math.PI, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // Rect um die Lücke zu füllen
+            // Rect um die Lï¿½cke zu fï¿½llen
             crc2.beginPath();
             crc2.fillStyle = "#FFFFFF";
             crc2.fillRect(50, 60, 50, 30);
             crc2.fill();
             crc2.stroke();
         }
-
-
-        function drawWolkeZwei(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        function drawWolkeZwei(_x, _y, _strokeColor, _fillColor) {
             // linker Bogen
             crc2.beginPath();
             crc2.arc(900, 125, 30, 0.5 * Math.PI, 1.5 * Math.PI);
@@ -190,16 +173,15 @@ namespace Aufgabe5 {
             crc2.arc(925, 110, 30, 1 * Math.PI, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // Rect um die Lücke zu füllen
+            // Rect um die Lï¿½cke zu fï¿½llen
             crc2.beginPath();
             crc2.fillStyle = "#FFFFFF";
             crc2.fillRect(900, 110, 50, 30);
             crc2.fill();
             crc2.stroke();
         }
-
         // Sonne
-        function drawSonne(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        function drawSonne(_x, _y, _strokeColor, _fillColor) {
             crc2.beginPath();
             crc2.arc(700, 75, 45, 0, 2 * Math.PI);
             crc2.fillStyle = "#F4FA58";
@@ -207,9 +189,8 @@ namespace Aufgabe5 {
             crc2.fill();
             crc2.stroke();
         }
-
         // Tannen 1 und 2
-        function drawTanneEins(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        function drawTanneEins(_x, _y, _strokeColor, _fillColor) {
             // Baumstamm
             crc2.beginPath();
             crc2.fillStyle = "#5F4C0B";
@@ -236,8 +217,7 @@ namespace Aufgabe5 {
             crc2.fill();
             crc2.stroke();
         }
-
-        function drawTanneZwei(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        function drawTanneZwei(_x, _y, _strokeColor, _fillColor) {
             // Baumstamm
             crc2.beginPath();
             crc2.fillStyle = "#5F4C0B";
@@ -264,48 +244,46 @@ namespace Aufgabe5 {
             crc2.fill();
             crc2.stroke();
         }
-
-
         // Blumen 1 - 3
-        function drawBlumeEins(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-            // linke Blüte
+        function drawBlumeEins(_x, _y, _strokeColor, _fillColor) {
+            // linke Blï¿½te
             crc2.beginPath();
             crc2.arc(_x - 334, _y - 230, 8, 0, 2 * Math.PI);
             crc2.fillStyle = "#FA5858";
             crc2.strokeStyle = "#FA5858";
             crc2.fill();
             crc2.stroke();
-            // linke obere Blüte
+            // linke obere Blï¿½te
             crc2.beginPath();
             crc2.arc(_x - 330, _y - 240, 8, 0, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // linke untere Blüte
+            // linke untere Blï¿½te
             crc2.beginPath();
             crc2.arc(_x - 330, _y - 220, 8, 0, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // rechte Blüte
+            // rechte Blï¿½te
             crc2.beginPath();
             crc2.arc(_x - 306, _y - 230, 8, 0, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // rechte obere Blüte
+            // rechte obere Blï¿½te
             crc2.beginPath();
             crc2.arc(_x - 310, _y - 240, 8, 0, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // rechte untere Blüte
+            // rechte untere Blï¿½te
             crc2.beginPath();
             crc2.arc(_x - 310, _y - 220, 8, 0, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // obere Blüte
+            // obere Blï¿½te
             crc2.beginPath();
             crc2.arc(_x - 320, _y - 243, 8, 0, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // untere Blüte
+            // untere Blï¿½te
             crc2.beginPath();
             crc2.arc(_x - 320, _y - 217, 8, 0, 2 * Math.PI);
             crc2.fill();
@@ -318,26 +296,25 @@ namespace Aufgabe5 {
             crc2.fill();
             crc2.stroke();
         }
-
-        function drawBlumeZwei(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-            // linke Blüte
+        function drawBlumeZwei(_x, _y, _strokeColor, _fillColor) {
+            // linke Blï¿½te
             crc2.beginPath();
             crc2.arc(_x + 8, _y - 167, 10, 0, 2 * Math.PI);
             crc2.fillStyle = "#9A2EFE";
             crc2.strokeStyle = "#9A2EFE";
             crc2.fill();
             crc2.stroke();
-            // rechte Blüte
+            // rechte Blï¿½te
             crc2.beginPath();
             crc2.arc(_x + 32, _y - 167, 10, 0, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // obere Blüte
+            // obere Blï¿½te
             crc2.beginPath();
             crc2.arc(_x + 20, _y - 180, 10, 0, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // untere Blüte
+            // untere Blï¿½te
             crc2.beginPath();
             crc2.arc(_x + 20, _y - 155, 10, 0, 2 * Math.PI);
             crc2.fill();
@@ -350,26 +327,25 @@ namespace Aufgabe5 {
             crc2.fill();
             crc2.stroke();
         }
-
-        function drawBlumeDrei(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-            // linke obere Blüte
+        function drawBlumeDrei(_x, _y, _strokeColor, _fillColor) {
+            // linke obere Blï¿½te
             crc2.beginPath();
             crc2.arc(_x - 230, _y - 140, 10, 0, 2 * Math.PI);
             crc2.fillStyle = "#58ACFA";
             crc2.strokeStyle = "#58ACFA";
             crc2.fill();
             crc2.stroke();
-            // linke untere Blüte
+            // linke untere Blï¿½te
             crc2.beginPath();
             crc2.arc(_x - 230, _y - 120, 10, 0, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // rechte obere Blüte
+            // rechte obere Blï¿½te
             crc2.beginPath();
             crc2.arc(_x - 210, _y - 140, 10, 0, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // rechte untere Blüte
+            // rechte untere Blï¿½te
             crc2.beginPath();
             crc2.arc(_x - 210, _y - 120, 10, 0, 2 * Math.PI);
             crc2.fill();
@@ -382,9 +358,8 @@ namespace Aufgabe5 {
             crc2.fill();
             crc2.stroke();
         }
-
         // Bienenkorb
-        function drawBienenkorb(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        function drawBienenkorb(_x, _y, _strokeColor, _fillColor) {
             // Unterer Teil
             crc2.beginPath();
             crc2.arc(1000, 451, 45, 1 * Math.PI, 2 * Math.PI);
@@ -402,7 +377,7 @@ namespace Aufgabe5 {
             crc2.arc(1000, 410, 31, 1 * Math.PI, 2 * Math.PI);
             crc2.fill();
             crc2.stroke();
-            // Öffnung
+            // ï¿½ffnung
             crc2.beginPath();
             crc2.arc(1000, 450, 13, 1 * Math.PI, 2 * Math.PI);
             crc2.fillStyle = "#3B240B";
@@ -410,38 +385,27 @@ namespace Aufgabe5 {
             crc2.fill();
             crc2.stroke();
         }
-
-
-
-
-
         // Aufgabenteil Animation //
-
         // Bild abspeichern
         savePicture = crc2.getImageData(0, 0, 1136, 640);
-
-        // Bienen starten bei Öffnung des Bienenkorbes
-        for (let i: number = 0; i < n; i++) {
+        // Bienen starten bei ï¿½ffnung des Bienenkorbes
+        for (let i = 0; i < n; i++) {
             x[i] = 670;
             y[i] = 600;
         }
-
         window.setTimeout(animate, 20);
-
         // Bei Mausklick oder Touch kommen weitere Bienen hinzu
         canvas.addEventListener("click", weitereBienen);
         canvas.addEventListener("touch", weitereBienen);
-
     }
-    // Funktion für die weiteren Bienen
-    function weitereBienen(): void {
+    // Funktion fï¿½r die weiteren Bienen
+    function weitereBienen() {
         x.push(670);
         y.push(600);
         n++;
     }
-
     // Biene (Styles)
-    function drawBiene(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+    function drawBiene(_x, _y, _strokeColor, _fillColor) {
         // Kopf
         crc2.beginPath();
         crc2.arc(_x + 310, _y - 180, 6, 0, 2 * Math.PI);
@@ -449,21 +413,21 @@ namespace Aufgabe5 {
         crc2.strokeStyle = "#000000";
         crc2.fill();
         crc2.stroke();
-        // Flügel 1
+        // Flï¿½gel 1
         crc2.beginPath();
         crc2.arc(_x + 317, _y - 190, 5, 0, 2 * Math.PI);
         crc2.fillStyle = "#EFF8FB";
         crc2.strokeStyle = "#E6E6E6";
         crc2.fill();
         crc2.stroke();
-        // Flügel 2
+        // Flï¿½gel 2
         crc2.beginPath();
         crc2.arc(_x + 323.5, _y - 190, 5, 0, 2 * Math.PI);
         crc2.fillStyle = "#EFF8FB";
         crc2.strokeStyle = "#E6E6E6";
         crc2.fill();
         crc2.stroke();
-        //Körper
+        //Kï¿½rper
         crc2.beginPath();
         crc2.arc(_x + 320, _y - 180, 8.5, 0, 2 * Math.PI);
         crc2.fillStyle = "#F4FA58";
@@ -476,13 +440,13 @@ namespace Aufgabe5 {
         crc2.fillRect(_x + 318, _y - 188, 5.5, 17);
         crc2.fill();
         crc2.stroke();
-        // Fühler Linie
+        // Fï¿½hler Linie
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.fillRect(_x + 307, _y - 193, 2, 8);
         crc2.fill();
         crc2.stroke();
-        // Fühler Kreis
+        // Fï¿½hler Kreis
         crc2.beginPath();
         crc2.arc(_x + 308, _y - 191, 1.2, 0, 2 * Math.PI);
         crc2.fillStyle = "#000000";
@@ -491,38 +455,25 @@ namespace Aufgabe5 {
         crc2.stroke();
         console.log("Biene " + drawBiene);
     }
-
-
-
     // Bienen animieren
-    function animate(): void {
-
+    function animate() {
         // Abgespeichertes Bild wiederherstellen
         crc2.putImageData(savePicture, 0, 0);
-
         // Das Flugverhalten der Bienen soll etwas nach links neigen
-        for (let i: number = 0; i < n; i++) {
+        for (let i = 0; i < n; i++) {
             x[i] += Math.random() * 8 - 6;
             y[i] += Math.random() * 4 - 2;
-
-
             // Wenn die Bienen den Bildrand verlassen, kommen sie rechts wieder ins Bild
-
-            if (x[i] < - 300) {
+            if (x[i] < -300) {
                 x[i] = 800;
             }
             if (x[i] == 0) {
                 x[i] = 800;
             }
-
-
-
-
             drawBiene(x[i], y[i], "#000000", "#000000");
             console.log("Biene " + x + y);
         }
-
         window.setTimeout(animate, 20);
     }
-
-}
+})(Aufgabe5 || (Aufgabe5 = {}));
+//# sourceMappingURL=a5.js.map
