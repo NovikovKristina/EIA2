@@ -1,7 +1,7 @@
 //Aufgabe: Aufgabe 
 //Name: Kristina Novikov
 //Matrikel: 254136
-//Datum: 10.05.2017
+//Datum: 11.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var Aufgabe7;
 (function (Aufgabe7) {
@@ -27,36 +27,7 @@ var Aufgabe7;
         drawSonne(0, 0, "#F4FA58", "#F4FA58");
         drawTanneEins(100, 300, "#0B6121", "#0B6121");
         drawTanneZwei(800, 255, "#0B6121", "#0B6121");
-        //        drawBlumeEins(550, 700, "#FA5858", "#FA5858");
-        //        drawBlumeZwei(700, 600, "#9A2EFE", "#9A2EFE");
-        //        drawBlumeDrei(1100, 700, "#58ACFA", "#58ACFA");
         drawBienenkorb(0, 0, "#61380B", "#61380B");
-        //        drawBiene(0, 0, "#000000", "#000000");
-        // Blumen zuf�llig platzieren
-        //        let anzahlBlumen: number = 20;
-        //        for (let i: number = 0; i < anzahlBlumen; i++) {
-        //            let zufallsBlume: number = Math.floor((Math.random() * 3) + 0);
-        //            let x: number = Math.floor(Math.random() * (1100 - 0) + 0);
-        //            let y: number = Math.floor(Math.random() * (630 - 400) + 550);
-        //            //        console.log("der x-Wert ist " + x, "der y-Wert ist " + y, zufallsBlume);
-        //
-        //            switch (zufallsBlume) {
-        //                case 0:
-        //                    drawBlumeEins(x, y, "#FA8258", "#FA8258");
-        //                    break;
-        //
-        //                case 1:
-        //                    drawBlumeZwei(x, y, "#9A2EFE", "#9A2EFE");
-        //                    break;
-        //
-        //                case 2:
-        //                    drawBlumeDrei(x, y, "#58#5
-        //                    break;
-        //
-        //                default:
-        //                    break;
-        //            }
-        //        }
         // Berge 1-3
         function drawBergEins(_x, _y, _strokeColor, _fillColor) {
             Aufgabe7.crc2.beginPath();
@@ -390,11 +361,8 @@ var Aufgabe7;
             Aufgabe7.crc2.stroke();
         }
         // Aufgabenteil Animation //
-        let anzahlBlumen = 20;
-        for (let i = 0; i < anzahlBlumen; i++) {
-            let f = new Aufgabe7.Blumenwiese(600, 700);
-            f.updateFlowers();
-        }
+        let f = new Aufgabe7.Blumenwiese(600, 700);
+        f.updateFlowers();
         // Bild abspeichern
         savePicture = Aufgabe7.crc2.getImageData(0, 0, canvas.width, canvas.height);
         // Bienen starten bei �ffnung des Bienenkorbes

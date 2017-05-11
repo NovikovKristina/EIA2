@@ -1,7 +1,7 @@
 //Aufgabe: Aufgabe 
 //Name: Kristina Novikov
 //Matrikel: 254136
-//Datum: 10.05.2017
+//Datum: 11.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 var Aufgabe7;
 (function (Aufgabe7) {
@@ -16,6 +16,7 @@ var Aufgabe7;
         updateBees() {
             this.moveBees();
             this.drawBees();
+            this.flybackBees();
         }
         drawBees() {
             // Kopf

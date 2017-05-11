@@ -1,7 +1,7 @@
 //Aufgabe: Aufgabe 
 //Name: Kristina Novikov
 //Matrikel: 254136
-//Datum: 10.05.2017
+//Datum: 11.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
 namespace Aufgabe7 {
@@ -35,38 +35,10 @@ namespace Aufgabe7 {
         drawSonne(0, 0, "#F4FA58", "#F4FA58");
         drawTanneEins(100, 300, "#0B6121", "#0B6121");
         drawTanneZwei(800, 255, "#0B6121", "#0B6121");
-        //        drawBlumeEins(550, 700, "#FA5858", "#FA5858");
-        //        drawBlumeZwei(700, 600, "#9A2EFE", "#9A2EFE");
-        //        drawBlumeDrei(1100, 700, "#58ACFA", "#58ACFA");
         drawBienenkorb(0, 0, "#61380B", "#61380B");
-        //        drawBiene(0, 0, "#000000", "#000000");
 
 
-        // Blumen zufällig platzieren
-        //        let anzahlBlumen: number = 20;
-        //        for (let i: number = 0; i < anzahlBlumen; i++) {
-        //            let zufallsBlume: number = Math.floor((Math.random() * 3) + 0);
-        //            let x: number = Math.floor(Math.random() * (1100 - 0) + 0);
-        //            let y: number = Math.floor(Math.random() * (630 - 400) + 550);
-        //            //        console.log("der x-Wert ist " + x, "der y-Wert ist " + y, zufallsBlume);
-        //
-        //            switch (zufallsBlume) {
-        //                case 0:
-        //                    drawBlumeEins(x, y, "#FA8258", "#FA8258");
-        //                    break;
-        //
-        //                case 1:
-        //                    drawBlumeZwei(x, y, "#9A2EFE", "#9A2EFE");
-        //                    break;
-        //
-        //                case 2:
-        //                    drawBlumeDrei(x, y, "#58#5
-        //                    break;
-        //
-        //                default:
-        //                    break;
-        //            }
-        //        }
+
 
 
 
@@ -422,16 +394,10 @@ namespace Aufgabe7 {
 
 
         // Aufgabenteil Animation //
+        let f: Blumenwiese = new Blumenwiese(600, 700);
+        f.updateFlowers();
 
-        let anzahlBlumen: number = 20;
-        for (let i: number = 0; i < anzahlBlumen; i++) {
-            let f: Blumenwiese = new Blumenwiese(600, 700);
-            f.updateFlowers();
-//            f.drawFlower1();
-//            f.drawFlower2();
-//            f.drawFlower3();
-//            f.setRandomFlower();
-        }
+
 
         // Bild abspeichern
         savePicture = crc2.getImageData(0, 0, canvas.width, canvas.height);
@@ -472,12 +438,6 @@ namespace Aufgabe7 {
             b.updateBees();
             b.flybackBees();
 
-
-
-
-
-            //            drawBiene(b.x, b.y, "#000000", "#000000");
-            //            console.log("Biene " + b.x + b.y);
         }
 
         window.setTimeout(animate, 20);

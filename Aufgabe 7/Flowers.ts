@@ -1,7 +1,7 @@
 //Aufgabe: Aufgabe 
 //Name: Kristina Novikov
 //Matrikel: 254136
-//Datum: 09.05.2017
+//Datum: 11.05.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
 
@@ -15,8 +15,6 @@ namespace Aufgabe7 {
 
         constructor(_x: number, _y: number) {
             console.log("Hey, I'm Bob!");
-            //            this.setRandomStyle();
-            //this.setRandomPosition();
             this.x = _x;
             this.y = _y;
         }
@@ -27,6 +25,34 @@ namespace Aufgabe7 {
             this.drawFlower3();
             this.setRandomFlower();
         }
+        
+        setRandomFlower(): void {
+            let anzahlBlumen: number = 20;
+            for (let i: number = 0; i < anzahlBlumen; i++) {
+                let zufallsBlume: number = Math.floor((Math.random() * 3) + 0);
+                this.x = Math.floor(Math.random() * (1100 - 0) + 0);
+                this.y = Math.floor(Math.random() * (630 - 400) + 550);
+//                        console.log("der x-Wert ist " + x, "der y-Wert ist " + y, zufallsBlume);
+
+                switch (zufallsBlume) {
+                    case 0:
+                        this.drawFlower1();
+                        break;
+
+                    case 1:
+                        this.drawFlower2();
+                        break;
+
+                    case 2:
+                        this.drawFlower3();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }
+        
 
         drawFlower1(): void {
             // linke Blüte
@@ -144,32 +170,7 @@ namespace Aufgabe7 {
             crc2.stroke();
         }
 
-        setRandomFlower(): void {
-            let anzahlBlumen: number = 20;
-            for (let i: number = 0; i < anzahlBlumen; i++) {
-                let zufallsBlume: number = Math.floor((Math.random() * 3) + 0);
-                let x: number = Math.floor(Math.random() * (1100 - 0) + 0);
-                let y: number = Math.floor(Math.random() * (630 - 400) + 550);
-//                        console.log("der x-Wert ist " + x, "der y-Wert ist " + y, zufallsBlume);
-
-                switch (zufallsBlume) {
-                    case 0:
-                        this.drawFlower1();
-                        break;
-
-                    case 1:
-                        this.drawFlower2();
-                        break;
-
-                    case 2:
-                        this.drawFlower3();
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-        }
+        
 
     }
 }
