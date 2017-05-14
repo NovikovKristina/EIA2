@@ -6,6 +6,9 @@
 var Aufgabe7;
 (function (Aufgabe7) {
     let bienen = [];
+    console.log(bienen);
+    let blumen = [];
+    console.log(blumen);
     let n = 10;
     let savePicture;
     window.addEventListener("load", init);

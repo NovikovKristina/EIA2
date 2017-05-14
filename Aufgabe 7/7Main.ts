@@ -8,6 +8,9 @@ namespace Aufgabe7 {
 
     export let crc2: CanvasRenderingContext2D;
     let bienen: Bienenschwarm[] = [];
+    console.log(bienen);
+    let blumen: Blumenwiese[] = [];
+    console.log(blumen);
 
     let n: number = 10;
     let savePicture: ImageData;
@@ -17,6 +20,7 @@ namespace Aufgabe7 {
     function init(_event: Event): void {
         let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
+        
         crc2 = canvas.getContext("2d");
 
         // Wiese       
