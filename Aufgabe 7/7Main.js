@@ -250,12 +250,14 @@ var Aufgabe7;
         // Aufgabenteil Animation //
         let f = new Aufgabe7.Blumenwiese(600, 700);
         f.updateFlowers();
+        console.log(blumen);
         // Bild abspeichern
         savePicture = Aufgabe7.crc2.getImageData(0, 0, canvas.width, canvas.height);
         // Bienen starten bei �ffnung des Bienenkorbes
         for (let i = 0; i < n; i++) {
             let b = new Aufgabe7.Bienenschwarm(670, 600);
             bienen[i] = b;
+            console.log(bienen);
         }
         window.setTimeout(animate, 20);
         // Bei Mausklick oder Touch kommen weitere Bienen hinzu

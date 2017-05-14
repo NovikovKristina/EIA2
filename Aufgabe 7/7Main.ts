@@ -276,6 +276,7 @@ namespace Aufgabe7 {
         // Aufgabenteil Animation //
         let f: Blumenwiese = new Blumenwiese(600, 700);
         f.updateFlowers();
+        console.log(blumen);
 
 
 
@@ -287,6 +288,7 @@ namespace Aufgabe7 {
             let b: Bienenschwarm = new Bienenschwarm(670, 600);
 
             bienen[i] = b;
+            console.log(bienen);
         }
 
         window.setTimeout(animate, 20);
