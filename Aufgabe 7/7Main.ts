@@ -38,13 +38,6 @@ namespace Aufgabe7 {
         drawBienenkorb(0, 0, "#61380B", "#61380B");
 
 
-
-
-
-
-
-
-
         // Berge 1-3
         function drawBergEins(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
             crc2.beginPath();
@@ -319,7 +312,6 @@ namespace Aufgabe7 {
         for (let i: number = 0; i < n; i++) {
             let b: Bienenschwarm = bienen[i];
             b.updateBees();
-            b.flybackBees();
 
         }
 

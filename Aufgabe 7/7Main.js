@@ -273,7 +273,6 @@ var Aufgabe7;
         for (let i = 0; i < n; i++) {
             let b = bienen[i];
             b.updateBees();
-            b.flybackBees();
         }
         window.setTimeout(animate, 20);
     }
