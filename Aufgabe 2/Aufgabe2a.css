@@ -1,0 +1,9 @@
+div	{
+	width: 16em;
+	height: 16em;		
+	border: 0.1px solid darkgray;
+	float: left;
+	font-family: sans-serif;
+	font-size: 0.6em;
+	text-align: center;
+}
